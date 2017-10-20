@@ -1,0 +1,46 @@
+---
+version: '3'
+
+services:
+  jobmanager:
+    build: ./flink
+    ports:
+      - 8081:8081
+    command: jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+
+  taskmanager:
+    build: ./flink
+    links:
+      - jobmanager
+    command: taskmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+
+  top-speed-windowing:
+    build: ./flink
+    links:
+      - jobmanager
+    depends_on:
+      - taskmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: job -p 4 /opt/flink/examples/streaming/TopSpeedWindowing.jar
+
+  prometheus-json-exporter:
+    build: ./prometheus-json-exporter
+    ports:
+      - 7979:7979
+    links:
+      - jobmanager
+    command: http://jobmanager:8081/joboverview ./config.yml
+    volumes:
+      - ./prometheus-json-exporter/config.yml:/go/config.yml
+
+  prometheus:
+    image: prom/prometheus:v1.8.0
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml

@@ -1,0 +1,15 @@
+- name: flink_api_jobs
+  type: object
+  path: $.running[*]
+  labels:
+    job_name: $.name
+  values:
+    running: 1
+
+- name: flink_api_jobs
+  type: object
+  path: $.finished[*]
+  labels:
+    job_name: $.name
+  values:
+    finished: 1
