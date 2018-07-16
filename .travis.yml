@@ -1,0 +1,6 @@
+jobs:
+  include:
+  - script:
+    - docker-compose up -d
+    # test that flink metrics arrive in prometheus
+    - until $(curl -s "http://localhost:9090/api/v1/query?query=flink_jobmanager_job_uptime" | jq -e '.data.result != []'); do sleep 1; done
