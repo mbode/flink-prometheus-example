@@ -4,6 +4,7 @@ version: '3'
 services:
   jobmanager:
     build: ./flink
+    container_name: jobmanager
     ports:
       - 8081:8081
     command: jobmanager
@@ -12,14 +13,16 @@ services:
 
   taskmanager:
     build: ./flink
+    container_name: taskmanager
     links:
       - jobmanager
     command: taskmanager
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
 
-  top-speed-windowing:
+  job:
     build: ./flink
+    container_name: job
     links:
       - jobmanager
     depends_on:
@@ -40,6 +43,7 @@ services:
 
   prometheus:
     image: prom/prometheus:v1.8.0
+    container_name: prometheus
     ports:
       - 9090:9090
     volumes:

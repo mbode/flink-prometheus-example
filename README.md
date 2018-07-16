@@ -5,7 +5,6 @@ This setup demonstrates how to integrate [Apache Flink](https://flink.apache.org
 ## Getting Started
 
 ### Startup
-As Flink Prometheus support has not been released yet with version 1.3.2, we need to build the Prometheus Reporter jar first. That is why building the Docker image takes some time. Once Flink 1.4.0 is released, we can refrain from this and the whole process will be a lot shorter.
 ```
 docker-compose up -d
 ```
