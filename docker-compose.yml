@@ -33,13 +33,14 @@ services:
 
   prometheus-json-exporter:
     build: ./prometheus-json-exporter
+    container_name: prometheus-json-exporter
     ports:
       - 7979:7979
     links:
       - jobmanager
-    command: http://jobmanager:8081/joboverview ./config.yml
+    command: http://jobmanager:8081/jobs/overview ./config.yml
     volumes:
-      - ./prometheus-json-exporter/config.yml:/go/config.yml
+      - ./prometheus-json-exporter/config.yml:/config.yml
 
   prometheus:
     image: prom/prometheus:v1.8.0

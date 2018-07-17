@@ -1,6 +1,6 @@
 - name: flink_api_jobs
   type: object
-  path: $.running[*]
+  path: $.jobs[*]?(@.state == "RUNNING")
   labels:
     job_name: $.name
   values:
@@ -8,7 +8,7 @@
 
 - name: flink_api_jobs
   type: object
-  path: $.finished[*]
+  path: $.jobs[*]?(@.state == "FINISHED")
   labels:
     job_name: $.name
   values:
