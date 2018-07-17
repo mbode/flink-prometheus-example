@@ -1,6 +1,6 @@
-# Flink Prometheus Example
-
-This setup demonstrates how to integrate [Apache Flink](https://flink.apache.org) with [Prometheus](https://prometheus.io).
+[![Build Status](https://travis-ci.org/mbode/flink-prometheus-example.svg?branch=master)](https://travis-ci.org/mbode/flink-prometheus-example)
+[![Flink 1.5.0](https://img.shields.io/badge/flink-1.5.0-blue.svg)](https://github.com/apache/flink/releases/tag/release-1.5.0)
+[![Prometheus 1.8.0](https://img.shields.io/badge/prometheus-1.8.0-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v1.8.0)
 
 ## Getting Started
 
@@ -16,5 +16,7 @@ docker-compose up -d
 
 ## Built With
 
-- [docker-compose](https://docs.docker.com/compose/) - provisioning of the test environment
-- [prometheus-json-exporter](https://github.com/kawamuray/prometheus-json-exporter) - to scrape [Flink API](https://ci.apache.org/projects/flink/flink-docs-release-1.5/monitoring/rest_api.html)
+- [Apache Flink](https://flink.apache.org)
+- [Prometheus](https://prometheus.io)
+- [docker-compose](https://docs.docker.com/compose/) – provisioning of the test environment
+- [prometheus-json-exporter](https://github.com/kawamuray/prometheus-json-exporter) – to scrape [Flink API](https://ci.apache.org/projects/flink/flink-docs-release-1.5/monitoring/rest_api.html)
