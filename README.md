@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/mbode/flink-prometheus-example.svg?branch=master)](https://travis-ci.org/mbode/flink-prometheus-example)
 [![Flink 1.5.0](https://img.shields.io/badge/flink-1.5.0-blue.svg)](https://github.com/apache/flink/releases/tag/release-1.5.0)
-[![Prometheus 1.8.0](https://img.shields.io/badge/prometheus-1.8.0-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v1.8.0)
+[![Prometheus 2.3.2](https://img.shields.io/badge/prometheus-2.3.2-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v2.3.2)
 
 ## Getting Started
 

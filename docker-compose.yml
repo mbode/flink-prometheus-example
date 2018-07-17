@@ -43,7 +43,7 @@ services:
       - ./prometheus-json-exporter/config.yml:/config.yml
 
   prometheus:
-    image: prom/prometheus:v1.8.0
+    image: prom/prometheus:v2.3.2
     container_name: prometheus
     ports:
       - 9090:9090
