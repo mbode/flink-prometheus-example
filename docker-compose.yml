@@ -51,6 +51,12 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
 
+  node-exporter:
+    image: prom/node-exporter:v0.16.0
+    container_name: node-exporter
+    ports:
+      - "9100:9100"
+
   grafana:
     image: grafana/grafana:5.2.1
     container_name: grafana

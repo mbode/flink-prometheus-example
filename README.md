@@ -20,5 +20,7 @@ docker-compose up -d
 - [Apache Flink](https://flink.apache.org)
 - [Prometheus](https://prometheus.io)
 - [Grafana](https://grafana.com)
+- [node_exporter](https://github.com/prometheus/node_exporter)
+- Dashboard [Node Exporter Full](https://grafana.com/dashboards/1860)
 - [docker-compose](https://docs.docker.com/compose/) – provisioning of the test environment
 - [prometheus-json-exporter](https://github.com/kawamuray/prometheus-json-exporter) – to scrape [Flink API](https://ci.apache.org/projects/flink/flink-docs-release-1.5/monitoring/rest_api.html)
