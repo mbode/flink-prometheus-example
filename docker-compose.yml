@@ -6,16 +6,21 @@ services:
     build: ./flink
     container_name: jobmanager
     ports:
-      - 8081:8081
+      - "8081:8081"
     command: jobmanager
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
 
-  taskmanager:
+  taskmanager1:
     build: ./flink
-    container_name: taskmanager
-    links:
-      - jobmanager
+    container_name: taskmanager1
+    command: taskmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+
+  taskmanager2:
+    build: ./flink
+    container_name: taskmanager2
     command: taskmanager
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
@@ -23,10 +28,8 @@ services:
   job:
     build: ./flink
     container_name: job
-    links:
-      - jobmanager
     depends_on:
-      - taskmanager
+      - jobmanager
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
     command: job -p 4 /opt/flink/examples/streaming/TopSpeedWindowing.jar
@@ -35,9 +38,7 @@ services:
     build: ./prometheus-json-exporter
     container_name: prometheus-json-exporter
     ports:
-      - 7979:7979
-    links:
-      - jobmanager
+      - "7979:7979"
     command: http://jobmanager:8081/jobs/overview ./config.yml
     volumes:
       - ./prometheus-json-exporter/config.yml:/config.yml
@@ -46,6 +47,16 @@ services:
     image: prom/prometheus:v2.3.2
     container_name: prometheus
     ports:
-      - 9090:9090
+      - "9090:9090"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:5.2.1
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=flink
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/

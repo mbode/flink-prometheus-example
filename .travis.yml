@@ -6,3 +6,5 @@ jobs:
     - until $(curl -s "http://localhost:9090/api/v1/query?query=flink_jobmanager_job_uptime" | jq -e '.data.result != []'); do printf '.'; sleep 1; done
     # test that prometheus-json-exporter metrics arrive in prometheus
     - until $(curl -s "http://localhost:9090/api/v1/query?query=flink_api_jobs_running" | grep -q CarTopSpeedWindowingExample); do printf '.'; sleep 1; done
+    # test that Flink dashboard has been imported successfully into grafana
+    - until $(curl -s -u admin:flink "http://localhost:3000/api/dashboards/uid/veLveEOiz" | grep -q Flink); do printf '.'; sleep 1; done

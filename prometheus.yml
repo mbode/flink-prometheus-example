@@ -10,6 +10,14 @@ scrape_configs:
     static_configs:
       - targets: ['jobmanager:9249']
 
-  - job_name: 'taskmanager'
+  - job_name: 'taskmanager1'
     static_configs:
-      - targets: ['taskmanager:9249']
+      - targets: ['taskmanager1:9249']
+
+  - job_name: 'taskmanager2'
+    static_configs:
+      - targets: ['taskmanager2:9249']
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['prometheus:9090']
