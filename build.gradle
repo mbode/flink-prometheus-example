@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+
+    id 'com.diffplug.gradle.spotless' version '3.13.0'
+    id 'com.github.spotbugs' version '1.6.2'
+}
+
+dependencies {
+    compileOnly 'org.apache.flink:flink-java:1.5.0'
+    compileOnly 'org.apache.flink:flink-streaming-java_2.11:1.5.0'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.apache.flink:flink-test-utils_2.11:1.5.0'
+
+    testRuntimeOnly 'org.slf4j:slf4j-nop:1.7.25'
+}
+
+configurations {
+    testImplementation.extendsFrom compileOnly
+}
+
+repositories {
+    jcenter()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.github.mbode.flink_prometheus_example.ExampleJob'
+        )
+    }
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
+}
+
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
