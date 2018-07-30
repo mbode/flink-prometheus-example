@@ -1,30 +1,4 @@
 {
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "5.2.1"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": "5.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": "5.0.0"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -41,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": null,
-  "iteration": 1531835944860,
+  "iteration": 1532975084633,
   "links": [],
   "panels": [
     {
@@ -461,7 +434,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 5,
+        "w": 12,
         "x": 0,
         "y": 3
       },
@@ -495,6 +468,109 @@
       ],
       "repeat": "job",
       "repeatDirection": "h",
+      "scopedVars": {
+        "job": {
+          "selected": false,
+          "text": "CarTopSpeedWindowingExample",
+          "value": "CarTopSpeedWindowingExample"
+        }
+      },
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "max(changes(flink_jobmanager_job_uptime{job_name=\"$job\"}[1m])) > bool 0",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": ".5,.8",
+      "title": "$job",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        },
+        {
+          "op": "=",
+          "text": "up",
+          "value": "1"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "datasource": "Prometheus",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 12,
+        "y": 3
+      },
+      "id": 17,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1532975084633,
+      "repeatPanelId": 14,
+      "scopedVars": {
+        "job": {
+          "selected": false,
+          "text": "PrometheusExampleJob",
+          "value": "PrometheusExampleJob"
+        }
+      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
@@ -539,6 +615,36 @@
       "id": 12,
       "panels": [],
       "repeat": "job",
+      "scopedVars": {
+        "job": {
+          "selected": false,
+          "text": "CarTopSpeedWindowingExample",
+          "value": "CarTopSpeedWindowingExample"
+        }
+      },
+      "title": "$job",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 18,
+      "panels": [],
+      "repeat": null,
+      "repeatIteration": 1532975084633,
+      "repeatPanelId": 12,
+      "scopedVars": {
+        "job": {
+          "selected": false,
+          "text": "PrometheusExampleJob",
+          "value": "PrometheusExampleJob"
+        }
+      },
       "title": "$job",
       "type": "row"
     }
@@ -551,12 +657,17 @@
     "list": [
       {
         "allValue": null,
-        "current": {},
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
         "datasource": "Prometheus",
-        "hide": 2,
-        "includeAll": false,
+        "hide": 0,
+        "includeAll": true,
         "label": null,
-        "multi": false,
+        "multi": true,
         "name": "job",
         "options": [],
         "query": "label_values(flink_api_jobs_running, job_name)",
@@ -572,7 +683,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -603,5 +714,5 @@
   "timezone": "",
   "title": "Flink",
   "uid": "veLveEOiz",
-  "version": 5
+  "version": 1
 }
