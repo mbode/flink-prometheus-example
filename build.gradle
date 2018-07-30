@@ -1,9 +1,15 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+import com.github.spotbugs.SpotBugsTask
+
 plugins {
     id 'java'
     id 'jacoco'
 
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
     id 'com.diffplug.gradle.spotless' version '3.13.0'
     id 'com.github.spotbugs' version '1.6.2'
+    id 'com.bmuschko.docker-remote-api' version '3.4.4'
 }
 
 dependencies {
@@ -12,6 +18,8 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.apache.flink:flink-test-utils_2.11:1.5.0'
+    testImplementation 'org.assertj:assertj-core:3.10.0'
+    testImplementation 'org.mockito:mockito-core:2.19.1'
 
     testRuntimeOnly 'org.slf4j:slf4j-nop:1.7.25'
 }
@@ -24,12 +32,35 @@ repositories {
     jcenter()
 }
 
-jar {
+version '0.1-SNAPSHOT'
+
+shadowJar {
     manifest {
-        attributes(
-                'Main-Class': 'com.github.mbode.flink_prometheus_example.ExampleJob'
-        )
+        attributes 'Main-Class': 'com.github.mbode.flink_prometheus_example.PrometheusExampleJob'
     }
+}
+
+task createDockerfile(type: Dockerfile) {
+    dependsOn shadowJar
+    destFile = project.file('build/Dockerfile')
+    from 'alpine:3.8'
+    runCommand 'apk add --no-cache curl jq'
+    addFile("libs/${shadowJar.archiveName}", "${project.name}.jar")
+    addFile('bin', '.')
+    user 'root'
+    entryPoint './submit-job.sh'
+}
+
+task copyScripts(type: Copy) {
+    from "${rootDir}/src/main/bin"
+    into "${buildDir}/bin"
+}
+
+task buildImage(type: DockerBuildImage) {
+    dependsOn copyScripts
+    dependsOn createDockerfile
+    inputDir = createDockerfile.destFile.parentFile
+    tag = "${project.name}:${project.version}"
 }
 
 spotless {
@@ -38,7 +69,7 @@ spotless {
     }
 }
 
-tasks.withType(com.github.spotbugs.SpotBugsTask) {
+tasks.withType(SpotBugsTask) {
     reports {
         xml.enabled false
         html.enabled true
@@ -48,7 +79,7 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
 jacocoTestReport {
     reports {
         xml.enabled true
-        html.enabled false
+        html.enabled true
     }
 }
 
