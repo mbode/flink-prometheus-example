@@ -32,7 +32,7 @@ services:
       - jobmanager
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
-    command: job -p 4 /opt/flink/examples/streaming/TopSpeedWindowing.jar
+    command: job -p 2 /opt/flink/examples/streaming/TopSpeedWindowing.jar
 
   prometheus-example-job:
     image: flink-prometheus-example:0.1-SNAPSHOT
