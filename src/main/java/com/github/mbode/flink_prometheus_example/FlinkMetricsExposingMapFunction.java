@@ -10,12 +10,12 @@ class FlinkMetricsExposingMapFunction extends RichMapFunction<Integer, Integer> 
   private static final long serialVersionUID = 1L;
 
   private transient Counter eventCounter;
-  private transient Histogram lengthHistogram;
+  private transient Histogram valueHistogram;
 
   @Override
   public void open(Configuration parameters) {
     eventCounter = getRuntimeContext().getMetricGroup().counter("events");
-    lengthHistogram =
+    valueHistogram =
         getRuntimeContext()
             .getMetricGroup()
             .histogram("value_histogram", new DescriptiveStatisticsHistogram(10_000_000));
@@ -24,7 +24,7 @@ class FlinkMetricsExposingMapFunction extends RichMapFunction<Integer, Integer> 
   @Override
   public Integer map(Integer value) {
     eventCounter.inc();
-    lengthHistogram.update(value);
+    valueHistogram.update(value);
     return value;
   }
 }

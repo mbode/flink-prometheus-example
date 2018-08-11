@@ -17,7 +17,7 @@ public class FlinkMetricsExposingMapFunctionTest {
 
   @Mock private Counter eventCounter;
 
-  @Mock private Histogram lengthHistogram;
+  @Mock private Histogram valueHistogram;
 
   @InjectMocks
   private final FlinkMetricsExposingMapFunction flinkMetricsExposingMapFunction =
@@ -37,6 +37,6 @@ public class FlinkMetricsExposingMapFunctionTest {
   @Test
   public void valueIsReportedToHistogram() {
     flinkMetricsExposingMapFunction.map(TEST_VALUE);
-    Mockito.verify(lengthHistogram).update(TEST_VALUE);
+    Mockito.verify(valueHistogram).update(TEST_VALUE);
   }
 }
