@@ -14,11 +14,11 @@ plugins {
 }
 
 dependencies {
-    compileOnly 'org.apache.flink:flink-java:1.5.1'
-    compileOnly 'org.apache.flink:flink-streaming-java_2.11:1.5.1'
+    compileOnly 'org.apache.flink:flink-java:1.5.2'
+    compileOnly 'org.apache.flink:flink-streaming-java_2.11:1.5.2'
 
     testImplementation 'junit:junit:4.12'
-    testImplementation 'org.apache.flink:flink-test-utils_2.11:1.5.1'
+    testImplementation 'org.apache.flink:flink-test-utils_2.11:1.5.2'
     testImplementation 'org.assertj:assertj-core:3.10.0'
     testImplementation 'org.mockito:mockito-core:2.21.0'
 
