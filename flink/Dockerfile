@@ -1,6 +1,6 @@
-FROM flink:1.5.1-alpine
+FROM flink:1.5.2-alpine
 COPY docker-entrypoint.sh /
 
 RUN echo $'metrics.reporters: prom\nmetrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter' >> "$FLINK_HOME/conf/flink-conf.yaml"
 
-RUN cp /opt/flink/opt/flink-metrics-prometheus-1.5.1.jar /opt/flink/lib
+RUN cp /opt/flink/opt/flink-metrics-prometheus-1.5.2.jar /opt/flink/lib
