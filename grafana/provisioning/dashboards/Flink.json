@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1532975084633,
+  "iteration": 1535816669640,
   "links": [],
   "panels": [
     {
@@ -158,7 +158,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(flink_jobmanager_Status_JVM_GarbageCollector_PS_MarkSweep_Time[5m]) + rate(flink_jobmanager_Status_JVM_GarbageCollector_PS_Scavenge_Time[5m])",
+              "expr": "rate(flink_jobmanager_Status_JVM_GarbageCollector_PS_MarkSweep_Time[5m])/1000 + rate(flink_jobmanager_Status_JVM_GarbageCollector_PS_Scavenge_Time[5m])/1000",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{instance}}",
@@ -230,7 +230,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 2
+            "y": 20
           },
           "id": 7,
           "legend": {
@@ -323,7 +323,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 11
+            "y": 29
           },
           "id": 4,
           "legend": {
@@ -349,7 +349,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(flink_taskmanager_Status_JVM_GarbageCollector_G1_Old_Generation_Time[5m]) + rate(flink_taskmanager_Status_JVM_GarbageCollector_G1_Young_Generation_Time[5m])",
+              "expr": "rate(flink_taskmanager_Status_JVM_GarbageCollector_G1_Old_Generation_Time[5m])/1000 + rate(flink_taskmanager_Status_JVM_GarbageCollector_G1_Young_Generation_Time[5m])/1000",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{instance}}",
@@ -506,7 +506,7 @@
           "value": "1"
         }
       ],
-      "valueName": "avg"
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -532,7 +532,7 @@
         "x": 12,
         "y": 3
       },
-      "id": 17,
+      "id": 26,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -562,7 +562,7 @@
       ],
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1532975084633,
+      "repeatIteration": 1535816669640,
       "repeatPanelId": 14,
       "scopedVars": {
         "job": {
@@ -602,7 +602,7 @@
           "value": "1"
         }
       ],
-      "valueName": "avg"
+      "valueName": "current"
     },
     {
       "collapsed": false,
@@ -612,41 +612,180 @@
         "x": 0,
         "y": 6
       },
-      "id": 12,
+      "id": 25,
       "panels": [],
-      "repeat": "job",
-      "scopedVars": {
-        "job": {
-          "selected": false,
-          "text": "CarTopSpeedWindowingExample",
-          "value": "CarTopSpeedWindowingExample"
-        }
-      },
-      "title": "$job",
+      "title": "PrometheusExampleJob",
       "type": "row"
     },
     {
-      "collapsed": false,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 1,
       "gridPos": {
-        "h": 1,
-        "w": 24,
+        "h": 9,
+        "w": 12,
         "x": 0,
         "y": 7
       },
-      "id": 18,
-      "panels": [],
-      "repeat": null,
-      "repeatIteration": 1532975084633,
-      "repeatPanelId": 12,
-      "scopedVars": {
-        "job": {
-          "selected": false,
-          "text": "PrometheusExampleJob",
-          "value": "PrometheusExampleJob"
-        }
+      "id": 20,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
-      "title": "$job",
-      "type": "row"
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "flink_taskmanager_job_task_operator_events",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{job}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Events",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 7
+      },
+      "id": 22,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "flink_taskmanager_job_task_operator_value_histogram",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{quantile}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Values",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "5s",
@@ -664,7 +803,7 @@
           ]
         },
         "datasource": "Prometheus",
-        "hide": 0,
+        "hide": 2,
         "includeAll": true,
         "label": null,
         "multi": true,
