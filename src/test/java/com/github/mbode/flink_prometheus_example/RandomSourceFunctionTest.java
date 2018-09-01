@@ -33,7 +33,7 @@ class RandomSourceFunctionTest extends AbstractTestBase {
     function.cancel();
 
     env.addSource(function).addSink(new CollectSink());
-    Assertions.assertTimeout(Duration.ofSeconds(1), () -> env.execute());
+    Assertions.assertTimeout(Duration.ofSeconds(2), () -> env.execute());
 
     assertThat(CollectSink.values).isEmpty();
   }

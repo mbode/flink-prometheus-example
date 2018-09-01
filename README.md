@@ -38,3 +38,4 @@ typical tasks:
 - verify: `./gradlew check`
 - integration tests: see [.travis.yml](.travis.yml)
 - list outdated dependenices: `./gradlew dependencyUpdates`
+- update gradle: `./gradlew wrapper --gradle-version=<x.y> --distribution-type=all` (twice)
