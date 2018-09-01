@@ -1,7 +1,6 @@
 package com.github.mbode.flink_prometheus_example;
 
 import org.apache.flink.api.java.utils.ParameterTool;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.DiscardingSink;
 
@@ -18,10 +17,14 @@ public class PrometheusExampleJob {
 
   private void run() throws Exception {
     final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-    final DataStreamSource<Integer> input =
-        env.addSource(new RandomSourceFunction(parameters.getInt("elements", Integer.MAX_VALUE)));
+    env.disableOperatorChaining();
 
-    input.map(new FlinkMetricsExposingMapFunction()).addSink(new DiscardingSink<>());
+    env.addSource(new RandomSourceFunction(parameters.getInt("elements", Integer.MAX_VALUE)))
+        .name(RandomSourceFunction.class.getSimpleName())
+        .map(new FlinkMetricsExposingMapFunction())
+        .name(FlinkMetricsExposingMapFunction.class.getSimpleName())
+        .addSink(new DiscardingSink<>())
+        .name(DiscardingSink.class.getSimpleName());
 
     env.execute(PrometheusExampleJob.class.getSimpleName());
   }
