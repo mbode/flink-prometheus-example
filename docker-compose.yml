@@ -45,6 +45,8 @@ services:
   prometheus-json-exporter:
     build: ./prometheus-json-exporter
     container_name: prometheus-json-exporter
+    depends_on:
+      - jobmanager
     ports:
       - "7979:7979"
     command: http://jobmanager:8081/jobs/overview ./config.yml
