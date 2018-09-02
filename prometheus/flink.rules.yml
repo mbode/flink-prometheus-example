@@ -3,6 +3,6 @@ groups:
   rules:
   - alert: FlinkJobsMissing
     expr: sum(flink_api_jobs_running) < 2
-    for: 3m
+    for: 1m
     annotations:
       summary: Fewer Flink jobs than expected are running.

@@ -1,5 +1,6 @@
 global:
   scrape_interval: 1s
+  evaluation_interval: 1s
 
 rule_files:
   - flink.rules.yml
