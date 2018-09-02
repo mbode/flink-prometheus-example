@@ -57,7 +57,7 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus:/etc/prometheus
 
   node-exporter:
     image: prom/node-exporter:v0.16.0
