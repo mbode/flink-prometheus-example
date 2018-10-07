@@ -3,6 +3,10 @@
 [![Flink v1.6.1](https://img.shields.io/badge/flink-v1.6.1-blue.svg)](https://github.com/apache/flink/releases/tag/release-1.6.1)
 [![Prometheus v2.4.3](https://img.shields.io/badge/prometheus-v2.4.3-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v2.4.3)
 
+This repository contains the live demo to my talk _Monitoring Flink with Prometheus_, which I have given at:
+* [Flink Forward Berlin 2018](https://berlin-2018.flink-forward.org/conference-program/#monitoring-flink-with-prometheus), _2018-09-04_ (:video_camera: [Video](https://data-artisans.com/flink-forward-berlin/resources/monitoring-flink-with-prometheus) :page_facing_up: [Slides](https://www.slideshare.net/MaximilianBode1/monitoring-flink-with-prometheus))
+* [Spark & Hadoop User Group Munich](https://www.meetup.com/de-DE/Hadoop-User-Group-Munich/events/252393503/), _2018-09-26_
+
 ## Getting Started
 
 ### Startup
