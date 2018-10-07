@@ -1,5 +1,6 @@
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+import com.github.spotbugs.SpotBugsTask
 
 plugins {
     id 'java'
@@ -7,8 +8,7 @@ plugins {
 
     id 'com.github.johnrengelman.shadow' version '2.0.4'
     id 'com.diffplug.gradle.spotless' version '3.15.0'
-    //TODO uncomment once https://github.com/spotbugs/spotbugs-gradle-plugin/issues/39 is solved
-    //id 'com.github.spotbugs' version '1.6.2'
+    id 'com.github.spotbugs' version '1.6.4'
     id 'com.bmuschko.docker-remote-api' version '3.6.2'
     id 'com.github.ben-manes.versions' version '0.20.0'
 }
@@ -75,13 +75,12 @@ spotless {
     }
 }
 
-//TODO uncomment once https://github.com/spotbugs/spotbugs-gradle-plugin/issues/39 is solved
-//tasks.withType(SpotBugsTask) {
-//    reports {
-//        xml.enabled false
-//        html.enabled true
-//    }
-//}
+tasks.withType(SpotBugsTask) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
 
 jacocoTestReport {
     reports {
