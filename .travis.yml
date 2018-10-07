@@ -4,7 +4,7 @@ jobs:
   - script:
     - ./gradlew check
     # test that prometheus config is valid
-    - docker run --entrypoint="promtool" --volume=$(pwd)/prometheus:/prom prom/prometheus:v2.4.2 check config /prom/prometheus.yml
+    - docker run --entrypoint="promtool" --volume=$(pwd)/prometheus:/prom prom/prometheus:v2.4.3 check config /prom/prometheus.yml
     - ./gradlew buildImage
     - docker-compose up -d
     # test that flink metrics arrive in prometheus
