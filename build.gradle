@@ -40,21 +40,14 @@ test {
     useJUnitPlatform()
 }
 
-shadowJar {
-    manifest {
-        attributes 'Main-Class': 'com.github.mbode.flink_prometheus_example.PrometheusExampleJob'
-    }
-}
-
 task createDockerfile(type: Dockerfile) {
     dependsOn shadowJar
     destFile = project.file('build/Dockerfile')
-    from 'alpine:3.8'
-    runCommand 'apk add --no-cache curl jq'
-    addFile("libs/${shadowJar.archiveName}", "${project.name}.jar")
-    addFile('bin', '.')
-    user 'root'
-    entryPoint './submit-job.sh'
+    from 'flink:1.6.2-alpine'
+    addFile("libs/${shadowJar.archiveName}", '$FLINK_HOME/lib/')
+    addFile('bin/docker-entrypoint.sh', '/')
+    runCommand('echo $\'metrics.reporters: prom\\nmetrics.reporter.prom.class: org.apache.flink.metrics.prometheus.PrometheusReporter\' >> "$FLINK_HOME/conf/flink-conf.yaml"')
+    runCommand('mv $FLINK_HOME/opt/flink-metrics-prometheus-1.6.2.jar $FLINK_HOME/lib')
 }
 
 task copyScripts(type: Copy) {

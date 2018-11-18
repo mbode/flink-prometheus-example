@@ -2,54 +2,31 @@
 version: '3'
 
 services:
-  jobmanager:
-    build: ./flink
-    container_name: jobmanager
+  job-cluster:
+    image: flink-prometheus-example:0.1-SNAPSHOT
+    container_name: job-cluster
     ports:
       - "8081:8081"
-    command: jobmanager
-    environment:
-      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: job-cluster --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dparallelism.default=1
 
   taskmanager1:
-    build: ./flink
+    image: flink-prometheus-example:0.1-SNAPSHOT
     container_name: taskmanager1
-    command: taskmanager
-    environment:
-      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    command: taskmanager -Djobmanager.rpc.address=job-cluster
 
   taskmanager2:
-    build: ./flink
-    container_name: taskmanager2
-    command: taskmanager
-    environment:
-      - JOB_MANAGER_RPC_ADDRESS=jobmanager
-
-  top-speed-windowing-job:
-    build: ./flink
-    container_name: top-speed-windowing-job
-    depends_on:
-      - jobmanager
-    environment:
-      - JOB_MANAGER_RPC_ADDRESS=jobmanager
-    command: job -p 2 /opt/flink/examples/streaming/TopSpeedWindowing.jar
-
-  prometheus-example-job:
     image: flink-prometheus-example:0.1-SNAPSHOT
-    container_name: prometheus-example-job
-    depends_on:
-      - jobmanager
-    environment:
-      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    container_name: taskmanager2
+    command: taskmanager -Djobmanager.rpc.address=job-cluster
 
   prometheus-json-exporter:
     build: ./prometheus-json-exporter
     container_name: prometheus-json-exporter
     depends_on:
-      - jobmanager
+      - job-cluster
     ports:
       - "7979:7979"
-    command: http://jobmanager:8081/jobs/overview ./config.yml
+    command: http://job-cluster:8081/jobs/overview ./config.yml
     volumes:
       - ./prometheus-json-exporter/config.yml:/config.yml
 

@@ -10,9 +10,9 @@ scrape_configs:
     static_configs:
       - targets: ['prometheus-json-exporter:7979']
 
-  - job_name: 'jobmanager'
+  - job_name: 'job-cluster'
     static_configs:
-      - targets: ['jobmanager:9249']
+      - targets: ['job-cluster:9249']
 
   - job_name: 'taskmanager1'
     static_configs:
