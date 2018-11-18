@@ -7,18 +7,18 @@ plugins {
     id 'jacoco'
 
     id 'com.github.johnrengelman.shadow' version '2.0.4'
-    id 'com.diffplug.gradle.spotless' version '3.15.0'
-    id 'com.github.spotbugs' version '1.6.4'
-    id 'com.bmuschko.docker-remote-api' version '3.6.2'
+    id 'com.diffplug.gradle.spotless' version '3.16.0'
+    id 'com.github.spotbugs' version '1.6.5'
+    id 'com.bmuschko.docker-remote-api' version '4.0.4'
     id 'com.github.ben-manes.versions' version '0.20.0'
 }
 
 dependencies {
-    compileOnly 'org.apache.flink:flink-java:1.6.1'
-    compileOnly 'org.apache.flink:flink-streaming-java_2.11:1.6.1'
+    compileOnly 'org.apache.flink:flink-java:1.6.2'
+    compileOnly 'org.apache.flink:flink-streaming-java_2.11:1.6.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
-    testImplementation 'org.apache.flink:flink-test-utils_2.11:1.6.1'
+    testImplementation 'org.apache.flink:flink-test-utils_2.11:1.6.2'
     testImplementation 'org.assertj:assertj-core:3.11.1'
     testImplementation 'org.mockito:mockito-junit-jupiter:2.23.0'
 
@@ -65,8 +65,8 @@ task copyScripts(type: Copy) {
 task buildImage(type: DockerBuildImage) {
     dependsOn copyScripts
     dependsOn createDockerfile
-    inputDir = createDockerfile.destFile.parentFile
-    tag = "${project.name}:${project.version}"
+    inputDir = project.layout.buildDirectory
+    tags.add("${project.name}:${project.version}")
 }
 
 spotless {
@@ -77,15 +77,15 @@ spotless {
 
 tasks.withType(SpotBugsTask) {
     reports {
-        xml.enabled false
-        html.enabled true
+        xml.enabled = false
+        html.enabled = true
     }
 }
 
 jacocoTestReport {
     reports {
-        xml.enabled true
-        html.enabled true
+        xml.enabled = true
+        html.enabled = true
     }
 }
 
