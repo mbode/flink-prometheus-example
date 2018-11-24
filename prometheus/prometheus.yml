@@ -17,7 +17,3 @@ scrape_configs:
   - job_name: 'taskmanager2'
     static_configs:
       - targets: ['taskmanager2:9249']
-
-  - job_name: 'prometheus'
-    static_configs:
-      - targets: ['prometheus:9090']
