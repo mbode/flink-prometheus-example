@@ -19,17 +19,6 @@ services:
     container_name: taskmanager2
     command: taskmanager -Djobmanager.rpc.address=job-cluster
 
-  prometheus-json-exporter:
-    build: ./prometheus-json-exporter
-    container_name: prometheus-json-exporter
-    depends_on:
-      - job-cluster
-    ports:
-      - "7979:7979"
-    command: http://job-cluster:8081/jobs/overview ./config.yml
-    volumes:
-      - ./prometheus-json-exporter/config.yml:/config.yml
-
   prometheus:
     image: prom/prometheus:v2.5.0
     container_name: prometheus

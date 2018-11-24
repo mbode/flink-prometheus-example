@@ -6,10 +6,6 @@ rule_files:
   - flink.rules.yml
 
 scrape_configs:
-  - job_name: 'flink-api'
-    static_configs:
-      - targets: ['prometheus-json-exporter:7979']
-
   - job_name: 'job-cluster'
     static_configs:
       - targets: ['job-cluster:9249']

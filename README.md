@@ -29,7 +29,6 @@ docker-compose up -d
 - [node_exporter](https://github.com/prometheus/node_exporter)
 - Dashboard [Node Exporter Full](https://grafana.com/dashboards/1860)
 - [docker-compose](https://docs.docker.com/compose/) – provisioning of the test environment
-- [prometheus-json-exporter](https://github.com/kawamuray/prometheus-json-exporter) – to scrape [Flink API](https://ci.apache.org/projects/flink/flink-docs-release-1.5/monitoring/rest_api.html)
 - [Gradle](https://gradle.org)
     - [shadow](https://github.com/johnrengelman/shadow)
     - [spotless](https://github.com/diffplug/spotless/tree/master/plugin-gradle)
