@@ -3,19 +3,19 @@ version: '3'
 
 services:
   job-cluster:
-    image: flink-prometheus-example:0.1-SNAPSHOT
+    build: .
     container_name: job-cluster
     ports:
       - "8081:8081"
     command: job-cluster --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dparallelism.default=1
 
   taskmanager1:
-    image: flink-prometheus-example:0.1-SNAPSHOT
+    build: .
     container_name: taskmanager1
     command: taskmanager -Djobmanager.rpc.address=job-cluster
 
   taskmanager2:
-    image: flink-prometheus-example:0.1-SNAPSHOT
+    build: .
     container_name: taskmanager2
     command: taskmanager -Djobmanager.rpc.address=job-cluster
 

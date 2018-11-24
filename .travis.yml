@@ -5,15 +5,7 @@ jobs:
     - ./gradlew check
     # test that prometheus config is valid
     - docker run --entrypoint="promtool" --volume=$(pwd)/prometheus:/prom prom/prometheus:v2.5.0 check config /prom/prometheus.yml
-    - ./gradlew buildImage
-    - docker-compose up -d
-    # test that flink metrics arrive in prometheus
-    - until $(curl -s "http://localhost:9090/api/v1/query?query=flink_jobmanager_job_uptime" | jq -e '.data.result != []'); do printf '.'; sleep 1; done
-    # test that Flink dashboard has been imported successfully into grafana
-    - until $(curl -s -u admin:flink "http://localhost:3000/api/dashboards/uid/veLveEOiz" | grep -q Flink); do printf '.'; sleep 1; done
-    # test that metrics from example job arrive in prometheus
-    - until $(curl -s "http://localhost:9090/api/v1/query?query=flink_taskmanager_job_task_operator_events" | jq -e '.data.result != []'); do printf '.'; sleep 1; done
-    - until $(curl -s "http://localhost:9090/api/v1/query?query=flink_taskmanager_job_task_operator_value_histogram" | jq -e '.data.result != []'); do printf '.'; sleep 1; done
+    - ./gradlew integrationTest
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock

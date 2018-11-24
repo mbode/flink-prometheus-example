@@ -11,8 +11,7 @@ This repository contains the live demo to my talk _Monitoring Flink with Prometh
 
 ### Startup
 ```
-./gradlew buildImage
-docker-compose up -d
+./gradlew composeUp
 ```
 
 ### Web UIs
@@ -33,12 +32,12 @@ docker-compose up -d
     - [shadow](https://github.com/johnrengelman/shadow)
     - [spotless](https://github.com/diffplug/spotless/tree/master/plugin-gradle)
     - [spotbugs](https://github.com/spotbugs/spotbugs-gradle-plugin)
-    - [gradle-docker-plugin](https://github.com/bmuschko/gradle-docker-plugin)
+    - [gradle-docker-compose-plugin](https://github.com/avast/gradle-docker-compose-plugin)
     - [gradle-versions-plugin](https://github.com/ben-manes/gradle-versions-plugin)
 
 ## Development
 typical tasks:
 - verify: `./gradlew check`
-- integration tests: see [.travis.yml](.travis.yml)
+- integration tests: `./gradlew integrationTest`
 - list outdated dependenices: `./gradlew dependencyUpdates`
 - update gradle: `./gradlew wrapper --gradle-version=<x.y> --distribution-type=all` (twice)
