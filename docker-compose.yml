@@ -6,7 +6,7 @@ services:
     build: .
     container_name: job-cluster
     ports:
-      - "8081:8081"
+    - "8081:8081"
     command: job-cluster --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dparallelism.default=1
 
   taskmanager1:
@@ -23,16 +23,16 @@ services:
     image: prom/prometheus:v2.5.0
     container_name: prometheus
     ports:
-      - "9090:9090"
+    - "9090:9090"
     volumes:
-      - ./prometheus:/etc/prometheus
+    - ./prometheus:/etc/prometheus
 
   grafana:
     image: grafana/grafana:5.3.4
     container_name: grafana
     ports:
-      - "3000:3000"
+    - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=flink
+    - GF_SECURITY_ADMIN_PASSWORD=flink
     volumes:
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    - ./grafana/provisioning/:/etc/grafana/provisioning/

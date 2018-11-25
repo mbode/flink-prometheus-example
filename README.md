@@ -33,6 +33,8 @@ This repository contains the live demo to my talk _Monitoring Flink with Prometh
     - [spotbugs](https://github.com/spotbugs/spotbugs-gradle-plugin)
     - [gradle-docker-compose-plugin](https://github.com/avast/gradle-docker-compose-plugin)
     - [gradle-versions-plugin](https://github.com/ben-manes/gradle-versions-plugin)
+- [Travis CI](https://travis-ci.org/)
+    - [yamllint](https://github.com/adrienverge/yamllint)
 
 ## Development
 typical tasks:

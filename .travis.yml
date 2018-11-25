@@ -1,18 +1,23 @@
-language: java
+---
 jobs:
   include:
+  - language: python
+    script:
+    - pip install yamllint
+    - yamllint $(git ls-files '*.yaml' '*.yml')
   - script:
-    - ./gradlew check
-    # test that prometheus config is valid
     - docker run --entrypoint="promtool" --volume=$(pwd)/prometheus:/prom prom/prometheus:v2.5.0 check config /prom/prometheus.yml
+  - language: java
+    script:
+    - ./gradlew check
     - ./gradlew integrationTest
 
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
