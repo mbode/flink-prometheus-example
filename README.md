@@ -25,10 +25,9 @@ This repository contains the live demo to my talk _Monitoring Flink with Prometh
 - [Apache Flink](https://flink.apache.org)
 - [Prometheus](https://prometheus.io)
 - [Grafana](https://grafana.com)
-- [node_exporter](https://github.com/prometheus/node_exporter)
-- Dashboard [Node Exporter Full](https://grafana.com/dashboards/1860)
 - [docker-compose](https://docs.docker.com/compose/) – provisioning of the test environment
-- [Gradle](https://gradle.org)
+- [Gradle](https://gradle.org) with [kotlin-dsl](https://github.com/gradle/kotlin-dsl)
+    - [gradle-testsets-plugin](https://github.com/unbroken-dome/gradle-testsets-plugin)
     - [shadow](https://github.com/johnrengelman/shadow)
     - [spotless](https://github.com/diffplug/spotless/tree/master/plugin-gradle)
     - [spotbugs](https://github.com/spotbugs/spotbugs-gradle-plugin)
@@ -40,4 +39,4 @@ typical tasks:
 - verify: `./gradlew check`
 - integration tests: `./gradlew integrationTest`
 - list outdated dependenices: `./gradlew dependencyUpdates`
-- update gradle: `./gradlew wrapper --gradle-version=<x.y> --distribution-type=all` (twice)
+- update gradle: `./gradlew wrapper --gradle-version=<x.y>` (twice)
