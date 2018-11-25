@@ -17,6 +17,7 @@ public class PrometheusExampleJob {
 
   private void run() throws Exception {
     final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+    env.enableCheckpointing(500);
     env.disableOperatorChaining();
 
     env.addSource(new RandomSourceFunction(parameters.getInt("elements", Integer.MAX_VALUE)))

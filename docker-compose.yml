@@ -7,17 +7,23 @@ services:
     container_name: job-cluster
     ports:
     - "8081:8081"
-    command: job-cluster --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster
+    volumes:
+    - state:/state
+    command: job-cluster --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
 
   taskmanager1:
     build: .
     container_name: taskmanager1
-    command: taskmanager -Djobmanager.rpc.address=job-cluster
+    volumes:
+    - state:/state
+    command: taskmanager -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
 
   taskmanager2:
     build: .
     container_name: taskmanager2
-    command: taskmanager -Djobmanager.rpc.address=job-cluster
+    volumes:
+    - state:/state
+    command: taskmanager -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
 
   prometheus:
     image: prom/prometheus:v2.5.0
@@ -36,3 +42,6 @@ services:
     - GF_SECURITY_ADMIN_PASSWORD=flink
     volumes:
     - ./grafana/provisioning/:/etc/grafana/provisioning/
+
+volumes:
+  state:

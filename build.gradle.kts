@@ -31,6 +31,7 @@ dependencies {
     val integrationTestImplementation by configurations
     integrationTestImplementation("com.mashape.unirest:unirest-java:1.4.9")
     integrationTestImplementation("org.awaitility:awaitility:3.1.3")
+    integrationTestImplementation("com.github.docker-java:docker-java:3.0.14")
 }
 
 tasks {
