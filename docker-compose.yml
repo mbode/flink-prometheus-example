@@ -7,7 +7,7 @@ services:
     container_name: job-cluster
     ports:
     - "8081:8081"
-    command: job-cluster --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dparallelism.default=1
+    command: job-cluster --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster
 
   taskmanager1:
     build: .

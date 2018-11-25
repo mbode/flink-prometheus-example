@@ -8,28 +8,21 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.junit.jupiter.api.Test;
 
-class IntegrationTest {
-  @Test
-  void flinkDashboardHasBeenImportedIntoGrafana() {
-    await()
-        .until(
-            () -> {
-              final String responseBody =
-                  Unirest.get("http://localhost:3000/api/dashboards/uid/veLveEOiz")
-                      .basicAuth("admin", "flink")
-                      .asString()
-                      .getBody();
-              return responseBody.contains("Flink");
-            });
-  }
+class PrometheusIT {
+  private static final String PROMETHEUS_URL =
+      "http://"
+          + System.getProperty("prometheus.host")
+          + ":"
+          + Integer.getInteger("prometheus.tcp.9090")
+          + "/";
 
   @Test
-  void genericFlinkMetricsArriveInPrometheus() {
+  void genericFlinkMetricsAreAvailable() {
     await().until(() -> dataIsAvailableInPrometheusFor("flink_jobmanager_job_uptime"));
   }
 
   @Test
-  void exampleJobMetricsArriveInPrometheus() {
+  void exampleJobMetricsAreAvailable() {
     await()
         .atMost(1, TimeUnit.MINUTES)
         .until(
@@ -42,7 +35,7 @@ class IntegrationTest {
   private static boolean dataIsAvailableInPrometheusFor(String metricsName)
       throws UnirestException {
     final JSONArray resultArray =
-        Unirest.get("http://localhost:9090/api/v1/query?query=" + metricsName)
+        Unirest.get(PROMETHEUS_URL + "api/v1/query?query=" + metricsName)
             .asJson()
             .getBody()
             .getObject()
