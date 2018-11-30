@@ -17,15 +17,17 @@ repositories { jcenter() }
 testSets { create("integrationTest") }
 
 dependencies {
-    compileOnly("org.apache.flink:flink-java:1.6.2")
-    compileOnly("org.apache.flink:flink-streaming-java_2.11:1.6.2")
+    val flinkVersion = "1.6.2"
+    compileOnly("org.apache.flink:flink-java:$flinkVersion")
+    compileOnly("org.apache.flink:flink-streaming-java_2.11:$flinkVersion")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
-    testImplementation("org.apache.flink:flink-test-utils_2.11:1.6.2")
+    val junitVersion = "5.3.2"
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
     testImplementation("org.assertj:assertj-core:3.11.1")
     testImplementation("org.mockito:mockito-junit-jupiter:2.23.4")
 
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
     testRuntimeOnly("org.slf4j:slf4j-nop:1.7.25")
 
     val integrationTestImplementation by configurations
