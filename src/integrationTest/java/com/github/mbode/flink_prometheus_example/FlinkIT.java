@@ -1,8 +1,8 @@
 package com.github.mbode.flink_prometheus_example;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 
-import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -27,7 +27,21 @@ class FlinkIT {
 
   @Test
   void jobCanBeRestartedFromCheckpoint() throws UnirestException {
-    await().atMost(1, TimeUnit.MINUTES).until(jobIsRunning());
+    await()
+        .atMost(1, TimeUnit.MINUTES)
+        .untilAsserted(() -> assertThat(getActiveTaskManager()).doesNotContain("unassigned"));
+
+    final String firstActiveTaskManager = getActiveTaskManager();
+
+    DockerClientBuilder.getInstance().build().killContainerCmd(firstActiveTaskManager).exec();
+
+    await()
+        .atMost(1, TimeUnit.MINUTES)
+        .untilAsserted(
+            () -> assertThat(getActiveTaskManager()).isNotEqualTo(firstActiveTaskManager));
+  }
+
+  private static String getActiveTaskManager() throws UnirestException {
     final String vertexId =
         Unirest.get(FLINK_URL + "jobs/" + JOB_ID)
             .asJson()
@@ -36,17 +50,14 @@ class FlinkIT {
             .getJSONArray("vertices")
             .getJSONObject(0)
             .getString("id");
-    final String activeTaskManager =
-        Unirest.get(FLINK_URL + "jobs/" + JOB_ID + "/vertices/" + vertexId)
-            .asJson()
-            .getBody()
-            .getObject()
-            .getJSONArray("subtasks")
-            .getJSONObject(0)
-            .getString("host");
-    final DockerClient client = DockerClientBuilder.getInstance().build();
-    client.killContainerCmd(activeTaskManager);
-    await().atMost(1, TimeUnit.MINUTES).until(jobIsRunning());
+    return Unirest.get(FLINK_URL + "jobs/" + JOB_ID + "/vertices/" + vertexId)
+        .asJson()
+        .getBody()
+        .getObject()
+        .getJSONArray("subtasks")
+        .getJSONObject(0)
+        .getString("host")
+        .split(":")[0];
   }
 
   private Callable<Boolean> jobIsRunning() {
