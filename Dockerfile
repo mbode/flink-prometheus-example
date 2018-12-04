@@ -1,4 +1,4 @@
-ARG FLINK_VERSION=1.6.2
+ARG FLINK_VERSION=1.7.0
 FROM flink:$FLINK_VERSION-alpine
 ADD build/libs $FLINK_HOME/lib/
 ADD docker-entrypoint.sh /
