@@ -35,7 +35,6 @@ This repository contains the live demo to my talk _Monitoring Flink with Prometh
     - [gradle-versions-plugin](https://github.com/ben-manes/gradle-versions-plugin)
 - [Travis CI](https://travis-ci.org/)
     - [yamllint](https://github.com/adrienverge/yamllint)
-    - [shellcheck](https://github.com/koalaman/shellcheck)
 
 ## Development
 typical tasks:

@@ -9,21 +9,21 @@ services:
     - "8081:8081"
     volumes:
     - state:/state
-    command: job-cluster --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
+    command: /opt/flink/bin/standalone-job.sh start-foreground --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
 
   taskmanager1:
     build: .
     container_name: taskmanager1
     volumes:
     - state:/state
-    command: taskmanager -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
+    command: /opt/flink/bin/taskmanager.sh start-foreground -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
 
   taskmanager2:
     build: .
     container_name: taskmanager2
     volumes:
     - state:/state
-    command: taskmanager -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
+    command: /opt/flink/bin/taskmanager.sh start-foreground -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
 
   prometheus:
     image: prom/prometheus:v2.5.0

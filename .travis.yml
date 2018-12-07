@@ -6,7 +6,6 @@ jobs:
     - pip install yamllint
     - yamllint $(git ls-files '*.yaml' '*.yml')
     - docker run --entrypoint="promtool" --volume=$(pwd)/prometheus:/prom prom/prometheus:v2.5.0 check config /prom/prometheus.yml
-    - find . -name '*.sh' | xargs docker run -v $(pwd):/mnt koalaman/shellcheck
   - language: java
     script:
     - ./gradlew check
