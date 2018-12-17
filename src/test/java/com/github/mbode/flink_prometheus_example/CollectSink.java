@@ -8,7 +8,7 @@ class CollectSink implements SinkFunction<Integer> {
   static final List<Integer> values = new ArrayList<>();
 
   @Override
-  public synchronized void invoke(Integer value) {
+  public void invoke(Integer value, Context context) {
     values.add(value);
   }
 }
