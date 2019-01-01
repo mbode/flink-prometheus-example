@@ -31,7 +31,8 @@ services:
     ports:
     - "9090:9090"
     volumes:
-    - ./prometheus:/etc/prometheus
+    - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    - ./prometheus/flink.rules.yml:/etc/prometheus/flink.rules.yml
 
   grafana:
     image: grafana/grafana:5.4.2
