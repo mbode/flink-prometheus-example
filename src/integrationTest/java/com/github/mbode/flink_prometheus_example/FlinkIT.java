@@ -8,6 +8,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
@@ -22,13 +23,14 @@ class FlinkIT {
 
   @Test
   void exampleJobIsRunning() {
-    await().atMost(1, TimeUnit.MINUTES).until(jobIsRunning());
+    await().atMost(1, TimeUnit.MINUTES).ignoreException(JSONException.class).until(jobIsRunning());
   }
 
   @Test
   void jobCanBeRestartedFromCheckpoint() throws UnirestException {
     await()
         .atMost(1, TimeUnit.MINUTES)
+        .ignoreException(JSONException.class)
         .untilAsserted(() -> assertThat(getActiveTaskManager()).doesNotContain("unassigned"));
 
     final String firstActiveTaskManager = getActiveTaskManager();
