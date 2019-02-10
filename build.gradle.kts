@@ -8,7 +8,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "4.0.4"
     id("com.diffplug.gradle.spotless") version "3.17.0"
     id("com.github.spotbugs") version "1.6.9"
-    id("com.avast.gradle.docker-compose") version "0.8.13"
+    id("com.avast.gradle.docker-compose") version "0.8.14"
     id("com.github.ben-manes.versions") version "0.20.0"
 }
 
@@ -21,7 +21,7 @@ dependencies {
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java_2.11:$flinkVersion")
 
-    val junitVersion = "5.3.2"
+    val junitVersion = "5.4.0"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
     testImplementation("org.assertj:assertj-core:3.11.1")
