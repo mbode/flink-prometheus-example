@@ -6,7 +6,7 @@ plugins {
 
     id("org.unbroken-dome.test-sets") version "2.1.1"
     id("com.github.johnrengelman.shadow") version "4.0.4"
-    id("com.diffplug.gradle.spotless") version "3.17.0"
+    id("com.diffplug.gradle.spotless") version "3.18.0"
     id("com.github.spotbugs") version "1.6.9"
     id("com.avast.gradle.docker-compose") version "0.8.14"
     id("com.github.ben-manes.versions") version "0.20.0"
