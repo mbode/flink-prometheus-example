@@ -7,6 +7,7 @@ services:
     container_name: job-cluster
     ports:
     - "8081:8081"
+    - "9249:9249"
     volumes:
     - state:/state
     command: /opt/flink/bin/standalone-job.sh start-foreground --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
@@ -14,6 +15,8 @@ services:
   taskmanager1:
     build: .
     container_name: taskmanager1
+    ports:
+    - "9250:9249"
     volumes:
     - state:/state
     command: /opt/flink/bin/taskmanager.sh start-foreground -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
@@ -21,6 +24,8 @@ services:
   taskmanager2:
     build: .
     container_name: taskmanager2
+    ports:
+    - "9251:9249"
     volumes:
     - state:/state
     command: /opt/flink/bin/taskmanager.sh start-foreground -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state

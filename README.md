@@ -19,6 +19,10 @@ This repository contains the live demo to my talk _Monitoring Flink with Prometh
 - [Flink JobManager](http://localhost:8081/#/overview)
 - [Prometheus](http://localhost:9090/graph)
 - [Grafana](http://localhost:3000) (credentials _admin:flink_)
+- Prometheus endpoints
+    - [Job Manager](http://localhost:9249/metrics)
+    - [Task Manager 1](http://localhost:9250/metrics)
+    - [Task Manager 2](http://localhost:9251/metrics)
 
 ## Built With
 
