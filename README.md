@@ -7,6 +7,8 @@ This repository contains the live demo to my talk _Monitoring Flink with Prometh
 * [Flink Forward Berlin 2018](https://berlin-2018.flink-forward.org/conference-program/#monitoring-flink-with-prometheus), _2018-09-04_ (:video_camera: [Video](https://data-artisans.com/flink-forward-berlin/resources/monitoring-flink-with-prometheus) :page_facing_up: [Slides](https://www.slideshare.net/MaximilianBode1/monitoring-flink-with-prometheus))
 * [Spark & Hadoop User Group Munich](https://www.meetup.com/de-DE/Hadoop-User-Group-Munich/events/252393503/), _2018-09-26_
 
+The blog post [Flink and Prometheus: Cloud-native monitoring of streaming applications](https://flink.apache.org/features/2019/03/11/prometheus-monitoring.html) explains how to run the demo yourself.
+
 ## Getting Started
 
 ### Startup
