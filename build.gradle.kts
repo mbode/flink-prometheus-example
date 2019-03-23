@@ -6,8 +6,8 @@ plugins {
 
     id("org.unbroken-dome.test-sets") version "2.1.1"
     id("com.github.johnrengelman.shadow") version "5.0.0"
-    id("com.diffplug.gradle.spotless") version "3.19.0"
-    id("com.github.spotbugs") version "1.6.11"
+    id("com.diffplug.gradle.spotless") version "3.20.0"
+    id("com.github.spotbugs") version "1.7.1"
     id("com.avast.gradle.docker-compose") version "0.9.1"
     id("com.github.ben-manes.versions") version "0.21.0"
 }
@@ -24,8 +24,8 @@ dependencies {
     val junitVersion = "5.4.0"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
-    testImplementation("org.assertj:assertj-core:3.12.1")
-    testImplementation("org.mockito:mockito-junit-jupiter:2.25.0")
+    testImplementation("org.assertj:assertj-core:3.12.2")
+    testImplementation("org.mockito:mockito-junit-jupiter:2.25.1")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
     testRuntimeOnly("org.slf4j:slf4j-simple:1.7.25")
