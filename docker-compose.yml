@@ -31,7 +31,7 @@ services:
     command: /opt/flink/bin/taskmanager.sh start-foreground -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
 
   prometheus:
-    image: prom/prometheus:v2.8.0
+    image: prom/prometheus:v2.8.1
     container_name: prometheus
     ports:
     - "9090:9090"
@@ -40,7 +40,7 @@ services:
     - ./prometheus/flink.rules.yml:/etc/prometheus/flink.rules.yml
 
   grafana:
-    image: grafana/grafana:6.0.1
+    image: grafana/grafana:6.1.1
     container_name: grafana
     ports:
     - "3000:3000"
