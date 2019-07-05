@@ -38,7 +38,6 @@ dependencies {
 
 tasks {
     withType(Test::class).configureEach { useJUnitPlatform() }
-    "composeUp" { dependsOn("shadowJar") }
     withType(SpotBugsTask::class).configureEach {
         reports {
             xml.isEnabled = false
