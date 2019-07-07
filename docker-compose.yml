@@ -10,7 +10,7 @@ services:
     - "9249:9249"
     volumes:
     - state:/state
-    command: /opt/flink/bin/standalone-job.sh start-foreground --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
+    command: /opt/flink/bin/standalone-job.sh start-foreground --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob --job-id 00000000000000000000000000000000 -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
 
   taskmanager1:
     build: .
