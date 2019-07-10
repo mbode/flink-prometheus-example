@@ -25,10 +25,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
     testImplementation("org.assertj:assertj-core:3.12.2")
-    testImplementation("org.mockito:mockito-junit-jupiter:2.28.2")
+    testImplementation("org.mockito:mockito-junit-jupiter:3.0.0")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-    testRuntimeOnly("org.slf4j:slf4j-simple:1.7.25")
+    testRuntimeOnly("org.slf4j:slf4j-simple:1.7.26")
 
     val integrationTestImplementation by configurations
     integrationTestImplementation("com.mashape.unirest:unirest-java:1.4.9")

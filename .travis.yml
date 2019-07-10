@@ -5,7 +5,7 @@ jobs:
     script:
     - pip install yamllint
     - yamllint $(git ls-files '*.yaml' '*.yml')
-    - docker run --entrypoint="promtool" --volume=$(pwd)/prometheus:/prom prom/prometheus:v2.10.0 check config /prom/prometheus.yml
+    - docker run --entrypoint="promtool" --volume=$(pwd)/prometheus:/prom prom/prometheus:v2.11.1 check config /prom/prometheus.yml
   - language: java
     script:
     - ./gradlew check
