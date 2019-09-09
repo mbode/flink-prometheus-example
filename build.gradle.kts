@@ -6,10 +6,10 @@ plugins {
 
     id("org.unbroken-dome.test-sets") version "2.1.1"
     id("com.github.johnrengelman.shadow") version "5.1.0"
-    id("com.diffplug.gradle.spotless") version "3.23.1"
+    id("com.diffplug.gradle.spotless") version "3.24.2"
     id("com.github.spotbugs") version "2.0.0"
     id("com.avast.gradle.docker-compose") version "0.9.4"
-    id("com.github.ben-manes.versions") version "0.21.0"
+    id("com.github.ben-manes.versions") version "0.25.0"
 }
 
 repositories { jcenter() }
@@ -21,10 +21,10 @@ dependencies {
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java_2.11:$flinkVersion")
 
-    val junitVersion = "5.5.0"
+    val junitVersion = "5.5.2"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
-    testImplementation("org.assertj:assertj-core:3.12.2")
+    testImplementation("org.assertj:assertj-core:3.13.2")
     testImplementation("org.mockito:mockito-junit-jupiter:3.0.0")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
@@ -32,7 +32,7 @@ dependencies {
 
     val integrationTestImplementation by configurations
     integrationTestImplementation("com.mashape.unirest:unirest-java:1.4.9")
-    integrationTestImplementation("org.awaitility:awaitility:3.1.6")
+    integrationTestImplementation("org.awaitility:awaitility:4.0.1")
     integrationTestImplementation("com.github.docker-java:docker-java:3.1.2")
 }
 
