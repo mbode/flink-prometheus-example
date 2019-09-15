@@ -40,8 +40,6 @@ The blog post [Flink and Prometheus: Cloud-native monitoring of streaming applic
     - [spotbugs](https://github.com/spotbugs/spotbugs-gradle-plugin)
     - [gradle-docker-compose-plugin](https://github.com/avast/gradle-docker-compose-plugin)
     - [gradle-versions-plugin](https://github.com/ben-manes/gradle-versions-plugin)
-- [Travis CI](https://travis-ci.org/)
-    - [yamllint](https://github.com/adrienverge/yamllint)
 
 ## Development
 typical tasks:
