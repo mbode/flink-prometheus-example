@@ -4,12 +4,12 @@ plugins {
     java
     jacoco
 
-    id("org.unbroken-dome.test-sets") version "2.2.0"
+    id("org.unbroken-dome.test-sets") version "2.2.1"
     id("com.github.johnrengelman.shadow") version "5.1.0"
-    id("com.diffplug.gradle.spotless") version "3.24.3"
+    id("com.diffplug.gradle.spotless") version "3.25.0"
     id("com.github.spotbugs") version "2.0.0"
     id("com.avast.gradle.docker-compose") version "0.9.5"
-    id("com.github.ben-manes.versions") version "0.25.0"
+    id("com.github.ben-manes.versions") version "0.27.0"
 }
 
 repositories { jcenter() }
