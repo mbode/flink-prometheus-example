@@ -1,4 +1,4 @@
-FROM gradle:5.6.4 as builder
+FROM gradle:6.0.1 as builder
 COPY . .
 RUN gradle shadowJar
 
