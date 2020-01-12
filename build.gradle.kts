@@ -28,11 +28,11 @@ dependencies {
     testImplementation("org.mockito:mockito-junit-jupiter:3.2.4")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-    testRuntimeOnly("org.slf4j:slf4j-simple:1.7.28")
+    testRuntimeOnly("org.slf4j:slf4j-simple:1.7.30")
 
     val integrationTestImplementation by configurations
     integrationTestImplementation("com.mashape.unirest:unirest-java:1.4.9")
-    integrationTestImplementation("org.awaitility:awaitility:4.0.1")
+    integrationTestImplementation("org.awaitility:awaitility:4.0.2")
     integrationTestImplementation("com.github.docker-java:docker-java:3.1.2")
 }
 
