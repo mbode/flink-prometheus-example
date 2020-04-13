@@ -18,7 +18,7 @@ class FlinkMetricsExposingMapFunction extends RichMapFunction<Integer, Integer> 
     valueHistogram =
         getRuntimeContext()
             .getMetricGroup()
-            .histogram("value_histogram", new DescriptiveStatisticsHistogram(10_000_000));
+            .histogram("value_histogram", new DescriptiveStatisticsHistogram(10_000));
   }
 
   @Override
