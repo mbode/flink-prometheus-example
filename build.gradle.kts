@@ -4,9 +4,9 @@ plugins {
 
     id("org.unbroken-dome.test-sets") version "3.0.1"
     id("com.github.johnrengelman.shadow") version "5.2.0"
-    id("com.diffplug.gradle.spotless") version "3.28.1"
-    id("com.github.spotbugs") version "4.0.5"
-    id("com.avast.gradle.docker-compose") version "0.10.10"
+    id("com.diffplug.gradle.spotless") version "3.30.0"
+    id("com.github.spotbugs") version "4.2.0"
+    id("com.avast.gradle.docker-compose") version "0.12.0"
     id("com.github.ben-manes.versions") version "0.28.0"
 }
 
@@ -15,14 +15,14 @@ repositories { jcenter() }
 testSets { create("integrationTest") }
 
 dependencies {
-    val flinkVersion = "1.10.0"
+    val flinkVersion = "1.10.1"
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java_2.11:$flinkVersion")
 
     val junitVersion = "5.6.1"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
-    testImplementation("org.assertj:assertj-core:3.15.0")
+    testImplementation("org.assertj:assertj-core:3.16.1")
     testImplementation("org.mockito:mockito-junit-jupiter:3.3.3")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
