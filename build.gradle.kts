@@ -3,10 +3,10 @@ plugins {
     jacoco
 
     id("org.unbroken-dome.test-sets") version "3.0.1"
-    id("com.github.johnrengelman.shadow") version "5.2.0"
-    id("com.diffplug.gradle.spotless") version "3.30.0"
-    id("com.github.spotbugs") version "4.2.0"
-    id("com.avast.gradle.docker-compose") version "0.12.0"
+    id("com.github.johnrengelman.shadow") version "6.0.0"
+    id("com.diffplug.gradle.spotless") version "4.3.1"
+    id("com.github.spotbugs") version "4.3.0"
+    id("com.avast.gradle.docker-compose") version "0.12.1"
     id("com.github.ben-manes.versions") version "0.28.0"
 }
 
@@ -30,8 +30,8 @@ dependencies {
 
     val integrationTestImplementation by configurations
     integrationTestImplementation("com.mashape.unirest:unirest-java:1.4.9")
-    integrationTestImplementation("org.awaitility:awaitility:4.0.2")
-    integrationTestImplementation("com.github.docker-java:docker-java:3.2.1")
+    integrationTestImplementation("org.awaitility:awaitility:4.0.3")
+    integrationTestImplementation("com.github.docker-java:docker-java:3.2.3")
 }
 
 tasks {
