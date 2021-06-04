@@ -10,7 +10,12 @@ services:
     - "9249:9249"
     volumes:
     - state:/state
-    command: /opt/flink/bin/standalone-job.sh start-foreground --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob --job-id 00000000000000000000000000000000 -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
+    command: standalone-job --job-classname com.github.mbode.flink_prometheus_example.PrometheusExampleJob --job-id 00000000000000000000000000000000
+    environment:
+    - |
+      FLINK_PROPERTIES=
+      jobmanager.rpc.address: job-cluster
+      state.checkpoints.dir: file:///state
 
   taskmanager1:
     build: .
@@ -19,7 +24,12 @@ services:
     - "9250:9249"
     volumes:
     - state:/state
-    command: /opt/flink/bin/taskmanager.sh start-foreground -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
+    command: taskmanager
+    environment:
+    - |
+      FLINK_PROPERTIES=
+      jobmanager.rpc.address: job-cluster
+      state.checkpoints.dir: file:///state
 
   taskmanager2:
     build: .
@@ -28,7 +38,12 @@ services:
     - "9251:9249"
     volumes:
     - state:/state
-    command: /opt/flink/bin/taskmanager.sh start-foreground -Djobmanager.rpc.address=job-cluster -Dstate.checkpoints.dir=file:///state
+    command: taskmanager
+    environment:
+    - |
+      FLINK_PROPERTIES=
+      jobmanager.rpc.address: job-cluster
+      state.checkpoints.dir: file:///state
 
   prometheus:
     image: prom/prometheus:v2.22.1

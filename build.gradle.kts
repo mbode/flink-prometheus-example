@@ -15,7 +15,7 @@ repositories { mavenCentral() }
 testSets { create("integrationTest") }
 
 dependencies {
-    val flinkVersion = "1.10.1"
+    val flinkVersion = "1.13.1"
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java_2.11:$flinkVersion")
 
@@ -45,7 +45,10 @@ tasks {
     "check" { dependsOn("jacocoTestReport") }
 }
 
-dockerCompose { isRequiredBy(tasks["integrationTest"]) }
+dockerCompose {
+    isRequiredBy(tasks["integrationTest"])
+    projectName = null
+}
 
 spotless {
     java { googleJavaFormat() }
