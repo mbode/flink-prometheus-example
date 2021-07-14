@@ -1,4 +1,4 @@
-FROM gradle:7.0.2 as builder
+FROM gradle:7.1.1 as builder
 COPY . .
 RUN gradle shadowJar
 
