@@ -55,7 +55,7 @@ services:
     - ./prometheus/flink.rules.yml:/etc/prometheus/flink.rules.yml
 
   grafana:
-    image: grafana/grafana:7.5.7
+    image: grafana/grafana:8.0.6
     container_name: grafana
     ports:
     - "3000:3000"
