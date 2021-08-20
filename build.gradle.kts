@@ -35,6 +35,11 @@ dependencies {
 }
 
 tasks {
+    withType<Jar> {
+        manifest {
+            attributes["Main-Class"] = "com.github.mbode.flink_prometheus_example.PrometheusExampleJob"
+        }
+    }
     withType(Test::class).configureEach { useJUnitPlatform() }
     "jacocoTestReport"(JacocoReport::class) {
         reports {
