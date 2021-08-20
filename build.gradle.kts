@@ -38,8 +38,8 @@ tasks {
     withType(Test::class).configureEach { useJUnitPlatform() }
     "jacocoTestReport"(JacocoReport::class) {
         reports {
-            xml.isEnabled = true
-            html.isEnabled = true
+            xml.required.set(true)
+            html.required.set(true)
         }
     }
     "check" { dependsOn("jacocoTestReport") }
