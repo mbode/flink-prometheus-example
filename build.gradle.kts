@@ -5,7 +5,7 @@ plugins {
     id("org.unbroken-dome.test-sets") version "4.0.0"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("com.diffplug.spotless") version "5.15.0"
-    id("com.github.spotbugs") version "4.7.3"
+    id("com.github.spotbugs") version "4.7.5"
     id("com.avast.gradle.docker-compose") version "0.14.9"
     id("com.github.ben-manes.versions") version "0.39.0"
 }
