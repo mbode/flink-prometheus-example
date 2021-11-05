@@ -22,7 +22,7 @@ dependencies {
     val junitVersion = "5.8.0"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
-    testImplementation("org.assertj:assertj-core:3.20.2")
+    testImplementation("org.assertj:assertj-core:3.21.0")
     testImplementation("org.mockito:mockito-junit-jupiter:3.12.4")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
@@ -30,7 +30,7 @@ dependencies {
 
     val integrationTestImplementation by configurations
     integrationTestImplementation("com.mashape.unirest:unirest-java:1.4.9")
-    integrationTestImplementation("org.awaitility:awaitility:4.1.0")
+    integrationTestImplementation("org.awaitility:awaitility:4.1.1")
     integrationTestImplementation("com.github.docker-java:docker-java:3.2.12")
 }
 
