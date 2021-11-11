@@ -15,7 +15,7 @@ repositories { mavenCentral() }
 testSets { create("integrationTest") }
 
 dependencies {
-    val flinkVersion = "1.13.2"
+    val flinkVersion = "1.13.3"
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java_2.11:$flinkVersion")
 
