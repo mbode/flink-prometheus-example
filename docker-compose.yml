@@ -46,7 +46,7 @@ services:
       state.checkpoints.dir: file:///state
 
   prometheus:
-    image: prom/prometheus:v2.29.1
+    image: prom/prometheus:v2.31.1
     container_name: prometheus
     ports:
     - "9090:9090"
@@ -55,7 +55,7 @@ services:
     - ./prometheus/flink.rules.yml:/etc/prometheus/flink.rules.yml
 
   grafana:
-    image: grafana/grafana:8.1.2
+    image: grafana/grafana:8.2.3
     container_name: grafana
     ports:
     - "3000:3000"

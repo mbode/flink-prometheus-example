@@ -1,8 +1,9 @@
 [![Actions Status](https://github.com/mbode/flink-prometheus-example/workflows/Gradle/badge.svg)](https://github.com/mbode/flink-prometheus-example/actions)
 [![Docker Hub](https://img.shields.io/docker/cloud/build/maximilianbode/flink-prometheus-example.svg)](https://hub.docker.com/r/maximilianbode/flink-prometheus-example)
 [![codecov](https://codecov.io/gh/mbode/flink-prometheus-example/branch/master/graph/badge.svg)](https://codecov.io/gh/mbode/flink-prometheus-example)
-[![Flink v1.13.2](https://img.shields.io/badge/flink-v1.13.2-blue.svg)](https://github.com/apache/flink/releases/tag/release-1.13.2)
-[![Prometheus v2.29.1](https://img.shields.io/badge/prometheus-v2.29.1-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v2.29.1)
+[![Flink v1.13.3](https://img.shields.io/badge/flink-v1.13.3-blue.svg)](https://github.com/apache/flink/releases/tag/release-1.13.3)
+[![Prometheus v2.31.1](https://img.shields.io/badge/prometheus-v2.31.1-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v2.31.1)
+[![Grafana v8.2.3](https://img.shields.io/badge/Grafana-v8.2.3-blue)](https://github.com/grafana/grafana/releases/tag/v8.2.3)
 
 This repository contains the live demo to my talk _Monitoring Flink with Prometheus_, which I have given at:
 * [Flink Forward Berlin 2018](https://berlin-2018.flink-forward.org/conference-program/#monitoring-flink-with-prometheus), _2018-09-04_ (:video_camera: [Video](https://www.youtube.com/watch?v=vesj-ghLimA) :page_facing_up: [Slides](https://www.slideshare.net/MaximilianBode1/monitoring-flink-with-prometheus))
