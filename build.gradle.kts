@@ -5,7 +5,7 @@ plugins {
     id("org.unbroken-dome.test-sets") version "4.0.0"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("com.diffplug.spotless") version "5.15.0"
-    id("com.github.spotbugs") version "4.7.3"
+    id("com.github.spotbugs") version "4.7.9"
     id("com.avast.gradle.docker-compose") version "0.14.9"
     id("com.github.ben-manes.versions") version "0.39.0"
 }
@@ -19,7 +19,7 @@ dependencies {
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java_2.11:$flinkVersion")
 
-    val junitVersion = "5.8.0"
+    val junitVersion = "5.8.1"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
     testImplementation("org.assertj:assertj-core:3.21.0")
@@ -30,7 +30,7 @@ dependencies {
 
     val integrationTestImplementation by configurations
     integrationTestImplementation("com.mashape.unirest:unirest-java:1.4.9")
-    integrationTestImplementation("org.awaitility:awaitility:4.1.0")
+    integrationTestImplementation("org.awaitility:awaitility:4.1.1")
     integrationTestImplementation("com.github.docker-java:docker-java:3.2.12")
 }
 
