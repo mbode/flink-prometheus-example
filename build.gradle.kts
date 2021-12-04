@@ -3,7 +3,7 @@ plugins {
     jacoco
 
     id("org.unbroken-dome.test-sets") version "4.0.0"
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    id("com.github.johnrengelman.shadow") version "7.1.0"
     id("com.diffplug.spotless") version "6.0.1"
     id("com.github.spotbugs") version "4.8.0"
     id("com.avast.gradle.docker-compose") version "0.14.9"
