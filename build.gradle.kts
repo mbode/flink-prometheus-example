@@ -20,13 +20,13 @@ repositories { mavenCentral() }
 testSets { create("integrationTest") }
 
 dependencies {
-    val flinkVersion = "1.14.3"
+    val flinkVersion = "1.15.0"
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
-    compileOnly("org.apache.flink:flink-streaming-java_2.11:$flinkVersion")
+    compileOnly("org.apache.flink:flink-streaming-java:$flinkVersion")
 
     val junitVersion = "5.8.2"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    testImplementation("org.apache.flink:flink-test-utils_2.11:$flinkVersion")
+    testImplementation("org.apache.flink:flink-test-utils:$flinkVersion")
     testImplementation("org.assertj:assertj-core:3.22.0")
     testImplementation("org.mockito:mockito-junit-jupiter:4.5.1")
 
