@@ -24,7 +24,7 @@ dependencies {
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java:$flinkVersion")
 
-    val junitVersion = "5.9.0"
+    val junitVersion = "5.9.1"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils:$flinkVersion")
     testImplementation("org.assertj:assertj-core:3.23.1")
