@@ -7,7 +7,7 @@ plugins {
     id("com.diffplug.spotless") version "6.11.0"
     id("com.github.spotbugs") version "5.0.12"
     id("com.avast.gradle.docker-compose") version "0.16.9"
-    id("com.github.ben-manes.versions") version "0.42.0"
+    id("com.github.ben-manes.versions") version "0.43.0"
 }
 
 java {
