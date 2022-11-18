@@ -31,7 +31,7 @@ dependencies {
     testImplementation("org.mockito:mockito-junit-jupiter:4.9.0")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.3")
+    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.4")
 
     val integrationTestImplementation by configurations
     integrationTestImplementation("com.mashape.unirest:unirest-java:1.4.9")
