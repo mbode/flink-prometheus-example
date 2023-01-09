@@ -27,7 +27,7 @@ dependencies {
     val junitVersion = "5.9.1"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.apache.flink:flink-test-utils:$flinkVersion")
-    testImplementation("org.assertj:assertj-core:3.24.0")
+    testImplementation("org.assertj:assertj-core:3.24.1")
     testImplementation("org.mockito:mockito-junit-jupiter:4.11.0")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
