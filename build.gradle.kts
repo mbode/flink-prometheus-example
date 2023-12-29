@@ -30,7 +30,7 @@ dependencies {
     testImplementation("org.mockito:mockito-junit-jupiter:5.8.0")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.9")
+    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.10")
 }
 
 testing {
@@ -52,7 +52,7 @@ testing {
                 implementation("org.mockito:mockito-junit-jupiter:5.8.0")
 
                 runtimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-                runtimeOnly("org.slf4j:slf4j-simple:2.0.9")
+                runtimeOnly("org.slf4j:slf4j-simple:2.0.10")
             }
         }
         register<JvmTestSuite>("integrationTest") {
