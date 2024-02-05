@@ -1,4 +1,4 @@
-FROM gradle:8.4.0-jdk11 as builder
+FROM gradle:8.6.0-jdk11 as builder
 COPY . .
 RUN gradle shadowJar
 
