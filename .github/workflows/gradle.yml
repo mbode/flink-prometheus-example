@@ -15,7 +15,7 @@ jobs:
           distribution: zulu
           java-version: 11
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v2.0.0
+        uses: gradle/wrapper-validation-action@v2.0.1
       - name: Check with Gradle
         run: ./gradlew check
       - name: Integration Test with Gradle
