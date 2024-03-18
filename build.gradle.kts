@@ -58,7 +58,7 @@ testing {
         register<JvmTestSuite>("integrationTest") {
             dependencies {
                 implementation("com.mashape.unirest:unirest-java:1.4.9")
-                implementation("org.awaitility:awaitility:4.2.0")
+                implementation("org.awaitility:awaitility:4.2.1")
                 implementation("com.github.docker-java:docker-java:3.3.6")
             }
         }
