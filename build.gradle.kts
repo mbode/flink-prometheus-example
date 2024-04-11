@@ -48,7 +48,7 @@ testing {
 
         val test by getting(JvmTestSuite::class) {
             dependencies {
-                val junitVersion = "5.9.3"
+                val junitVersion = "5.10.2"
                 implementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
                 implementation("org.apache.flink:flink-test-utils:$flinkVersion")
 
