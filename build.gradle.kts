@@ -25,7 +25,7 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
     testImplementation("org.apache.flink:flink-test-utils:$flinkVersion")
-    testImplementation("org.assertj:assertj-core:3.25.3")
+    testImplementation("org.assertj:assertj-core:3.26.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.12.0")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -41,7 +41,7 @@ testing {
         configureEach {
             if (this is JvmTestSuite) {
                 dependencies {
-                    implementation("org.assertj:assertj-core:3.25.3")
+                    implementation("org.assertj:assertj-core:3.26.0")
                 }
             }
         }
