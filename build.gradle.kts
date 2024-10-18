@@ -6,7 +6,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("com.diffplug.spotless") version "6.25.0"
     id("com.github.spotbugs") version "6.0.25"
-    id("com.avast.gradle.docker-compose") version "0.17.9"
+    id("com.avast.gradle.docker-compose") version "0.17.10"
     id("com.github.ben-manes.versions") version "0.51.0"
 }
 
