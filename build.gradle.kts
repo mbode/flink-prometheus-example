@@ -26,7 +26,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
     testImplementation("org.apache.flink:flink-test-utils:$flinkVersion")
     testImplementation("org.assertj:assertj-core:3.27.1")
-    testImplementation("org.mockito:mockito-junit-jupiter:5.14.2")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.15.2")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testRuntimeOnly("org.slf4j:slf4j-simple:2.0.16")
@@ -52,7 +52,7 @@ testing {
                 implementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
                 implementation("org.apache.flink:flink-test-utils:$flinkVersion")
 
-                implementation("org.mockito:mockito-junit-jupiter:5.14.2")
+                implementation("org.mockito:mockito-junit-jupiter:5.15.2")
 
                 runtimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
                 runtimeOnly("org.slf4j:slf4j-simple:2.0.16")
