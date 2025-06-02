@@ -23,7 +23,7 @@ dependencies {
     compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java:$flinkVersion")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.12.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.0")
     testImplementation("org.apache.flink:flink-test-utils:$flinkVersion")
     testImplementation("org.assertj:assertj-core:3.27.3")
     testImplementation("org.mockito:mockito-junit-jupiter:5.18.0")
@@ -48,7 +48,7 @@ testing {
 
         val test by getting(JvmTestSuite::class) {
             dependencies {
-                val junitVersion = "5.12.2"
+                val junitVersion = "5.13.0"
                 implementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
                 implementation("org.apache.flink:flink-test-utils:$flinkVersion")
 
