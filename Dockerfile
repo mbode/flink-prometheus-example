@@ -1,8 +1,8 @@
-FROM gradle:8.14.3-jdk11 as builder
+FROM gradle:8.14.3-jdk17 as builder
 COPY . .
 RUN gradle shadowJar
 
-FROM flink:1.20.1-java11
+FROM flink:1.20.1-java17
 RUN echo "metrics.reporters: prom" >> "$FLINK_HOME/conf/config.yaml"; \
     echo "metrics.reporter.prom.factory.class: org.apache.flink.metrics.prometheus.PrometheusReporterFactory" >> "$FLINK_HOME/conf/config.yaml"
 COPY --from=builder /home/gradle/build/libs/*.jar $FLINK_HOME/usrlib/
