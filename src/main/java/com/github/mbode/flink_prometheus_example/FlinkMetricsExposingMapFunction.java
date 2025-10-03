@@ -1,7 +1,7 @@
 package com.github.mbode.flink_prometheus_example;
 
+import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.api.common.functions.RichMapFunction;
-import org.apache.flink.configuration.Configuration;
 import org.apache.flink.metrics.Counter;
 import org.apache.flink.metrics.Histogram;
 import org.apache.flink.runtime.metrics.DescriptiveStatisticsHistogram;
@@ -13,7 +13,7 @@ class FlinkMetricsExposingMapFunction extends RichMapFunction<Integer, Integer> 
   private transient Histogram valueHistogram;
 
   @Override
-  public void open(Configuration parameters) {
+  public void open(OpenContext openContext) {
     eventCounter = getRuntimeContext().getMetricGroup().counter("events");
     valueHistogram =
         getRuntimeContext()

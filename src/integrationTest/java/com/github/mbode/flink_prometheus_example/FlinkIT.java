@@ -58,8 +58,8 @@ class FlinkIT {
         .getObject()
         .getJSONArray("subtasks")
         .getJSONObject(0)
-        .getString("host")
-        .split(":")[0];
+        .getString("endpoint")
+        .split("\\.")[0];
   }
 
   private Callable<Boolean> jobIsRunning() {

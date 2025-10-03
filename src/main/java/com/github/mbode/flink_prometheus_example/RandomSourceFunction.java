@@ -1,7 +1,7 @@
 package com.github.mbode.flink_prometheus_example;
 
 import java.util.concurrent.ThreadLocalRandom;
-import org.apache.flink.streaming.api.functions.source.SourceFunction;
+import org.apache.flink.streaming.api.functions.source.legacy.SourceFunction;
 
 class RandomSourceFunction implements SourceFunction<Integer> {
   private int count = 0;

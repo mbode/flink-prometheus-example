@@ -1,8 +1,8 @@
 package com.github.mbode.flink_prometheus_example;
 
-import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.functions.sink.DiscardingSink;
+import org.apache.flink.streaming.api.functions.sink.legacy.DiscardingSink;
+import org.apache.flink.util.ParameterTool;
 
 public class PrometheusExampleJob {
   private final ParameterTool parameters;

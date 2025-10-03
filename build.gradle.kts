@@ -18,10 +18,9 @@ java {
 
 repositories { mavenCentral() }
 
-val flinkVersion = "1.20.3"
+val flinkVersion = "2.0.0"
 
 dependencies {
-    compileOnly("org.apache.flink:flink-java:$flinkVersion")
     compileOnly("org.apache.flink:flink-streaming-java:$flinkVersion")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.4")
