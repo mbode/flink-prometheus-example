@@ -33,7 +33,7 @@ The blog post [Flink and Prometheus: Cloud-native monitoring of streaming applic
 - [docker-compose](https://docs.docker.com/compose/) – provisioning of the test environment
 - [Gradle](https://gradle.org) with [kotlin-dsl](https://github.com/gradle/kotlin-dsl)
     - [gradle-testsets-plugin](https://github.com/unbroken-dome/gradle-testsets-plugin)
-    - [shadow](https://github.com/johnrengelman/shadow)
+    - [shadow](https://github.com/GradleUp/shadow)
     - [spotless](https://github.com/diffplug/spotless/tree/master/plugin-gradle)
     - [spotbugs](https://github.com/spotbugs/spotbugs-gradle-plugin)
     - [gradle-docker-compose-plugin](https://github.com/avast/gradle-docker-compose-plugin)
