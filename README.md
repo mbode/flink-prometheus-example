@@ -1,7 +1,7 @@
 [![Actions Status](https://github.com/mbode/flink-prometheus-example/workflows/Gradle/badge.svg)](https://github.com/mbode/flink-prometheus-example/actions)
 [![codecov](https://codecov.io/gh/mbode/flink-prometheus-example/branch/master/graph/badge.svg)](https://codecov.io/gh/mbode/flink-prometheus-example)
 [![Flink v2.1.0](https://img.shields.io/badge/flink-v2.1.0-blue.svg)](https://github.com/apache/flink/releases/tag/release-2.1.0)
-[![Prometheus v2.37.1](https://img.shields.io/badge/prometheus-v2.37.1-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v2.37.1)
+[![Prometheus v3.6.0](https://img.shields.io/badge/prometheus-v3.6.0-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v3.6.0)
 
 This repository contains the live demo to my talk _Monitoring Flink with Prometheus_, which I have given at:
 * [Flink Forward Berlin 2018](https://berlin-2018.flink-forward.org/conference-program/#monitoring-flink-with-prometheus), _2018-09-04_ (:video_camera: [Video](https://www.youtube.com/watch?v=vesj-ghLimA) :page_facing_up: [Slides](https://www.slideshare.net/MaximilianBode1/monitoring-flink-with-prometheus))
@@ -18,7 +18,7 @@ The blog post [Flink and Prometheus: Cloud-native monitoring of streaming applic
 
 ### Web UIs
 - [Flink JobManager](http://localhost:8081/#/overview)
-- [Prometheus](http://localhost:9090/graph)
+- [Prometheus](http://localhost:9090/query)
 - [Grafana](http://localhost:3000) (credentials _admin:flink_)
 - Prometheus endpoints
     - [Job Manager](http://localhost:9249/metrics)

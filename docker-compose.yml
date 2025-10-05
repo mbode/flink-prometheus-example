@@ -44,7 +44,7 @@ services:
       state.checkpoints.dir: file:///state
 
   prometheus:
-    image: prom/prometheus:v2.37.1
+    image: prom/prometheus:v3.6.0
     container_name: prometheus
     ports:
     - "9090:9090"
