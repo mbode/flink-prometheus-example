@@ -1,4 +1,4 @@
-FROM gradle:9.1.0-jdk21 as builder
+FROM gradle:9.2.0-jdk21 as builder
 COPY . .
 RUN gradle shadowJar
 
