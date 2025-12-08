@@ -3,7 +3,7 @@ plugins {
     jacoco
 
     id("jvm-test-suite")
-    id("com.gradleup.shadow") version "9.2.2"
+    id("com.gradleup.shadow") version "9.3.0"
     id("com.diffplug.spotless") version "8.1.0"
     id("com.github.spotbugs") version "6.4.7"
     id("com.avast.gradle.docker-compose") version "0.17.20"
