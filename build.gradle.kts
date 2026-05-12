@@ -18,7 +18,7 @@ java {
 
 repositories { mavenCentral() }
 
-val flinkVersion = "2.1.1"
+val flinkVersion = "2.2.1"
 
 dependencies {
     compileOnly("org.apache.flink:flink-streaming-java:$flinkVersion")
