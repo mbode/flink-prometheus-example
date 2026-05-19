@@ -1,6 +1,6 @@
 [![Actions Status](https://github.com/mbode/flink-prometheus-example/workflows/Gradle/badge.svg)](https://github.com/mbode/flink-prometheus-example/actions)
 [![codecov](https://codecov.io/gh/mbode/flink-prometheus-example/branch/master/graph/badge.svg)](https://codecov.io/gh/mbode/flink-prometheus-example)
-[![Flink v2.1.1](https://img.shields.io/badge/flink-v2.1.1-blue.svg)](https://github.com/apache/flink/releases/tag/release-2.1.1)
+[![Flink v2.2.0](https://img.shields.io/badge/flink-v2.2.0-blue.svg)](https://github.com/apache/flink/releases/tag/release-2.2.0)
 [![Prometheus v3.6.0](https://img.shields.io/badge/prometheus-v3.6.0-blue.svg)](https://github.com/prometheus/prometheus/releases/tag/v3.6.0)
 
 This repository contains the live demo to my talk _Monitoring Flink with Prometheus_, which I have given at:
