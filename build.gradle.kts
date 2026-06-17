@@ -4,7 +4,7 @@ plugins {
 
     id("jvm-test-suite")
     id("com.gradleup.shadow") version "9.4.2"
-    id("com.diffplug.spotless") version "8.6.0"
+    id("com.diffplug.spotless") version "8.7.0"
     id("com.github.spotbugs") version "6.5.6"
     id("com.avast.gradle.docker-compose") version "0.17.21"
     id("com.github.ben-manes.versions") version "0.54.0"
