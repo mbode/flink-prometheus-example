@@ -7,7 +7,7 @@ plugins {
     id("com.diffplug.spotless") version "8.9.0"
     id("com.github.spotbugs") version "6.5.9"
     id("com.avast.gradle.docker-compose") version "0.17.21"
-    id("com.github.ben-manes.versions") version "0.58.0"
+    id("io.github.ben-manes.versions") version "0.58.0"
 }
 
 java {
@@ -46,18 +46,19 @@ testing {
             }
         }
 
-        val test by getting(JvmTestSuite::class) {
-            dependencies {
-                val junitVersion = "6.1.2"
-                implementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
-                implementation("org.apache.flink:flink-test-utils:$flinkVersion")
+        val test =
+            getByName<JvmTestSuite>("test") {
+                dependencies {
+                    val junitVersion = "6.1.2"
+                    implementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+                    implementation("org.apache.flink:flink-test-utils:$flinkVersion")
 
-                implementation("org.mockito:mockito-junit-jupiter:5.23.0")
+                    implementation("org.mockito:mockito-junit-jupiter:5.23.0")
 
-                runtimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-                runtimeOnly("org.slf4j:slf4j-simple:2.0.18")
+                    runtimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+                    runtimeOnly("org.slf4j:slf4j-simple:2.0.18")
+                }
             }
-        }
         register<JvmTestSuite>("integrationTest") {
             dependencies {
                 implementation("com.mashape.unirest:unirest-java:1.4.9")
