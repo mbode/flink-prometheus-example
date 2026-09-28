@@ -29,7 +29,7 @@ dependencies {
     testImplementation("org.mockito:mockito-junit-jupiter:5.24.0")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.19")
+    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.20")
 }
 
 tasks.named<Test>("test") {
@@ -56,7 +56,7 @@ testing {
                     implementation("org.mockito:mockito-junit-jupiter:5.24.0")
 
                     runtimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-                    runtimeOnly("org.slf4j:slf4j-simple:2.0.19")
+                    runtimeOnly("org.slf4j:slf4j-simple:2.0.20")
                 }
             }
         register<JvmTestSuite>("integrationTest") {
